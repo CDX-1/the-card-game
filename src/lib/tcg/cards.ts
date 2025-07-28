@@ -1,6 +1,7 @@
 import TCGdex, { Card, Query } from "@tcgdex/sdk";
 
 const tcgdex = new TCGdex('en');
+tcgdex.setCacheTTL(60 * 5);
 
 const cardDetailsCache = new Map<string, Card | null>();
 

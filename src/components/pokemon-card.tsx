@@ -3,11 +3,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Card } from '@tcgdex/sdk';
-import { getCardDetails } from '@/lib/cards';
+import { getCardDetails } from '@/lib/tcg/cards';
 import { Skeleton } from './ui/skeleton';
 import Image from 'next/image';
 import { IconStarFilled, IconCrown } from '@tabler/icons-react';
-import { getRarity, Rarity } from '@/lib/rarity';
+import { getRarity, Rarity } from '@/lib/tcg/rarity';
 import { cn } from '@/lib/utils';
 
 interface PokemonCardProps {
@@ -16,6 +16,7 @@ interface PokemonCardProps {
     height?: number;
     clickable?: boolean;
     glow?: boolean;
+    className?: string;
 }
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({
@@ -24,6 +25,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({
     height = 342,
     clickable = false,
     glow = true,
+    className = ""
 }) => {
     // Responsive card dimensions
     const getCardDimensions = () => {
@@ -93,7 +95,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({
     };
 
     const renderCard = () => (
-        <div className="relative perspective-1000">
+        <div className={cn("relative perspective-1000", className)}>
             <div
                 ref={cardRef}
                 className={`relative transition-all duration-500 ease-out hover:scale-105 ${clickable ? 'hover:cursor-pointer' : ''}`}

@@ -3,17 +3,15 @@
 import { useState } from "react";
 import {
     IconBrandDiscord,
-    IconLogin,
     IconMoon,
-    IconPlayCard10Filled,
     IconSun,
-    IconUserPlus,
     IconMenu2,
     IconX
 } from "@tabler/icons-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
+import Profile from "./profile";
 
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
@@ -27,6 +25,7 @@ export default function Navbar() {
         { title: "Packs", href: "/packs" },
         { title: "Collection", href: "/collection" },
         { title: "Market", href: "/market" },
+        { title: "Catalog", href: "/catalog" },
         { title: "Leaderboard", href: "/leaderboard" },
     ];
 
@@ -39,7 +38,6 @@ export default function Navbar() {
             <div className="flex items-center justify-between">
                 {/* Left Side */}
                 <div className="flex items-center space-x-4">
-                    <IconPlayCard10Filled className="size-8" />
                     <div className="hidden md:flex space-x-2">
                         {components.map((component) => (
                             <Button
@@ -61,14 +59,7 @@ export default function Navbar() {
                     <Button variant="ghost" size="icon" onClick={toggleTheme}>
                         {theme === "light" ? <IconMoon /> : <IconSun />}
                     </Button>
-                    <Button variant="outline" className="rounded-md">
-                        <IconLogin />
-                        <span className="ml-1">Log In</span>
-                    </Button>
-                    <Button className="rounded-md">
-                        <IconUserPlus />
-                        <span className="ml-1">Sign Up</span>
-                    </Button>
+                    <Profile />
                 </div>
 
                 {/* Hamburger Menu */}
@@ -99,19 +90,12 @@ export default function Navbar() {
                         <Button variant="ghost" size="icon" onClick={() => window.open(discordLink, "_blank")}>
                             <IconBrandDiscord />
                         </Button>
-                        <Button variant="ghost" size="icon" onClick={toggleTheme}>
+                        <Button className="hover:cursor-pointer" variant="ghost" size="icon" onClick={toggleTheme}>
                             {theme === "light" ? <IconMoon /> : <IconSun />}
                         </Button>
                     </div>
                     <div className="pt-2 flex space-x-2">
-                        <Button variant="outline" className="flex-1">
-                            <IconLogin className="mr-1" />
-                            Log In
-                        </Button>
-                        <Button className="flex-1">
-                            <IconUserPlus className="mr-1" />
-                            Sign Up
-                        </Button>
+                        <Profile />
                     </div>
                 </div>
             )}

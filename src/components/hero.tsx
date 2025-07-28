@@ -53,7 +53,7 @@ export default function Hero() {
                 <div className="flex flex-col space-y-6 md:space-y-8 w-full max-w-4xl">
                     <div className="flex flex-col items-center space-y-2 md:space-y-4 text-center">
                         {/* Main Heading */}
-                        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-8xl font-bold flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 items-center">
+                        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-8xl font-bold flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-center">
                             <WordRotate words={["Collect", "Trade", "Flex"]} />
                             <p>Cards</p>
                         </div>
@@ -66,7 +66,7 @@ export default function Hero() {
 
                     {/* Sign Up Redirect Button */}
                     <Button className="rounded-xl w-auto h-10 sm:h-11 mx-auto hover:cursor-pointer">
-                        <IconPokeball className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <IconPokeball className="size-6" />
                         <span className="ml-2 text-sm sm:text-base">Start Collecting</span>
                     </Button>
                 </div>

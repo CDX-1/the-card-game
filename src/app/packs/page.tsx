@@ -133,7 +133,7 @@ export default function PacksPage() {
             isCancelled = true;
             clearTimeout(timeoutId);
         };
-    }, [stock, search, onlyShowInStock, rarities, rarityTypes]);
+    }, [stock, search, onlyShowInStock, rarities]);
 
     return (
         <div className="flex flex-col my-10 space-y-8 min-h-[calc(100vh-73px)] items-center">

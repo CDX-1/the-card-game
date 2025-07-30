@@ -1,4 +1,4 @@
-import TCGdex, { Set, SetResumeModel } from '@tcgdex/sdk';
+import TCGdex, { Set, SetResume, SetResumeModel } from '@tcgdex/sdk';
 
 const tcgdex = new TCGdex('en');
 tcgdex.setCacheTTL(60 * 5);
@@ -57,7 +57,7 @@ const rarityStyles: Record<string, string> = {
     'divine': 'bg-teal-400'
 }
 
-export function getSetRarity(set: Set, rarities: Record<string, string> | null): { name: string; className: string } {
+export function getSetRarity(set: Set | SetResume | SetResumeModel, rarities: Record<string, string> | null): { name: string; className: string } {
     if (!rarities) {
         return { name: "loading...", className: 'bg-neutral-400' };
     }
